@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
             ref: ${{ github.event.inputs.source_branch }}
 
@@ -65,15 +65,16 @@ jobs:
             $bytes = [Convert]::FromBase64String($response.value)
             [IO.File]::WriteAllBytes("${{ github.event.inputs.solution_name }}_managed.zip", $bytes)
 
-            # Download the unmanaged solution (for now we will need to use string manipulation to get the unmanaged solution URL, until the API provides this value)
+            # Download the unmanaged solution
             $unmanaged_artifact_url = "${{ github.event.inputs.artifact_url }}".Replace("artifactfile", "artifactfileunmanaged")
             $response = Invoke-RestMethod "$unmanaged_artifact_url" -Method 'GET' -Headers $headers
             $bytes = [Convert]::FromBase64String($response.value)
             [IO.File]::WriteAllBytes("${{ github.event.inputs.solution_name }}.zip", $bytes)
 
-      # Unpack the solution
+      # Unpack the solution - FIXED: Using v1.0.1 with increased timeout
       - name: unpack solution
-        uses: microsoft/powerplatform-actions/unpack-solution@v0
+        uses: microsoft/powerplatform-actions/unpack-solution@v1.0.1
+        timeout-minutes: 20
         with:
           solution-file: "${{ github.event.inputs.solution_name }}.zip"
           solution-folder: "${{ github.event.repository.name }}"
