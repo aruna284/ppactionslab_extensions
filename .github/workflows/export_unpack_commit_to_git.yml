@@ -100,9 +100,26 @@ jobs:
           git config user.name "${{ github.event.inputs.user_name }}"
           git config user.email "aruna284@users.noreply.github.com"
           git config --global url."https://x-access-token:`$env:GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
-          git pull
+          
+          $targetBranch = '${{ github.event.inputs.target_branch }}'
+          $sourceBranch = '${{ github.event.inputs.source_branch }}'
+          
+          # Determine which branch we're on
+          $branchToPull = $targetBranch
+          if ($branchToPull -eq '' -or $branchToPull -eq 'null') {
+              $branchToPull = $sourceBranch
+          }
+          
+          git pull origin $branchToPull
           git add --all
-          git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
+          
+          # Use commit message from input if provided, otherwise use a default message
+          $commitMsg = '${{ github.event.inputs.commit_message }}'
+          if ($commitMsg -eq '' -or $commitMsg -eq 'null') {
+              $commitMsg = "Update solution: ${{ github.event.inputs.solution_name }}"
+          }
+          
+          git commit -m "$commitMsg" --allow-empty
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
@@ -111,7 +128,6 @@ jobs:
         run: |
           $targetBranch = '${{ github.event.inputs.target_branch }}'
           $sourceBranch = '${{ github.event.inputs.source_branch }}'
-          $token = $env:GITHUB_TOKEN
           
           # Prepare the branch name to push to
           $branchToPush = $targetBranch
@@ -124,9 +140,19 @@ jobs:
               exit 1
           }
           
-          Write-Host "Pushing to branch: `$branchToPush"
-          git push -u origin $branchToPush 2>&1
-          if ($LASTEXITCODE -ne 0) {
-              Write-Host "Push failed with exit code: `$LASTEXITCODE"
-              exit $LASTEXITCODE
+          Write-Host "Fetching remote to sync tracking"
+          git fetch origin 2>&1
+          
+          Write-Host "Pulling latest changes from remote branch: $branchToPush"
+          git pull --rebase origin $branchToPush 2>&1
+          
+          Write-Host "Pushing to remote branch: $branchToPush"
+          git push origin $branchToPush 2>&1
+          
+          $pushExitCode = $LASTEXITCODE
+          if ($pushExitCode -ne 0) {
+              Write-Host "Error: Push failed with exit code $pushExitCode"
+              exit $pushExitCode
           }
+          
+          Write-Host "Successfully pushed changes to $branchToPush"
