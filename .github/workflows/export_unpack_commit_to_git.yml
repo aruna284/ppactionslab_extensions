@@ -21,6 +21,7 @@ on:
       commit_message:
         description: "Message to provide for the commit"
         required: false
+        
 permissions:
   contents: write
 jobs:
