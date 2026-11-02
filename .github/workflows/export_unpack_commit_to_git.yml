@@ -149,7 +149,7 @@ jobs:
           git pull --rebase origin $branchToPush 2>&1
           
           Write-Host "Pushing to remote branch: $branchToPush"
-          git push origin $branchToPush 2>&1
+          git push --force-with-lease origin $branchToPush 2>&1
           
           $pushExitCode = $LASTEXITCODE
           if ($pushExitCode -ne 0) {
