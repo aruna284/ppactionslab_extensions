@@ -102,8 +102,16 @@ jobs:
       - name: push to branch
         shell: pwsh
         run: |
-          if('${{ github.event.inputs.target_branch }}' -ne '') {
-              git push origin ${{ github.event.inputs.target_branch }}
+          $targetBranch = '${{ github.event.inputs.target_branch }}'
+          $sourceBranch = '${{ github.event.inputs.source_branch }}'
+          
+          if ($targetBranch -ne '' -and $targetBranch -ne 'null') {
+              Write-Host "Pushing to target branch: $targetBranch"
+              git push origin $targetBranch
+          } elseif ($sourceBranch -ne '' -and $sourceBranch -ne 'null') {
+              Write-Host "Pushing to source branch: $sourceBranch"
+              git push origin $sourceBranch
           } else {
-              git push origin ${{ github.event.inputs.source_branch }}
+              Write-Host "Error: No valid branch specified for push"
+              exit 1
           }
