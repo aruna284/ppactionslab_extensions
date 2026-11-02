@@ -31,7 +31,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
             ref: ${{ github.event.inputs.source_branch }}
-
+            token: ${{ secrets.GITHUB_TOKEN }}
+            persist-credentials: true
       # Commit changes to the existing or new branch
       - name: create new branch if specified
         shell: pwsh
@@ -90,20 +91,41 @@ jobs:
       # Commit changes to the existing or new branch
       - name: commit changes
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           rm -rf ${{ github.event.inputs.solution_name }}.zip
           rm -rf ${{ github.event.inputs.solution_name }}_managed.zip
-          git config user.name ${{ github.event.inputs.user_name }}
-          git pull 
+          git config user.name "${{ github.event.inputs.user_name }}"
+          git config user.email "aruna284@users.noreply.github.com"
+          git config --global url."https://x-access-token:`$env:GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
+          git pull
           git add --all
           git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
-
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if('${{ github.event.inputs.target_branch }}' -ne '') {
-              git push origin ${{ github.event.inputs.target_branch }}
-          } else {
-              git push origin ${{ github.event.inputs.source_branch }}
+          $targetBranch = '${{ github.event.inputs.target_branch }}'
+          $sourceBranch = '${{ github.event.inputs.source_branch }}'
+          $token = $env:GITHUB_TOKEN
+          
+          # Prepare the branch name to push to
+          $branchToPush = $targetBranch
+          if ($branchToPush -eq '' -or $branchToPush -eq 'null') {
+              $branchToPush = $sourceBranch
+          }
+          
+          if ($branchToPush -eq '' -or $branchToPush -eq 'null') {
+              Write-Host "Error: No valid branch specified"
+              exit 1
+          }
+          
+          Write-Host "Pushing to branch: `$branchToPush"
+          git push -u origin $branchToPush 2>&1
+          if ($LASTEXITCODE -ne 0) {
+              Write-Host "Push failed with exit code: `$LASTEXITCODE"
+              exit $LASTEXITCODE
           }
