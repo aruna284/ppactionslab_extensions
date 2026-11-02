@@ -90,27 +90,32 @@ jobs:
       # Commit changes to the existing or new branch
       - name: commit changes
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           rm -rf ${{ github.event.inputs.solution_name }}.zip
           rm -rf ${{ github.event.inputs.solution_name }}_managed.zip
-          git config user.name ${{ github.event.inputs.user_name }}
-          git pull 
+          git config user.name "${{ github.event.inputs.user_name }}"
+          git config user.email "aruna284@users.noreply.github.com"
+          git config --global url."https://x-access-token:`$env:GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
+          git pull
           git add --all
           git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
-
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $targetBranch = '${{ github.event.inputs.target_branch }}'
           $sourceBranch = '${{ github.event.inputs.source_branch }}'
           
           if ($targetBranch -ne '' -and $targetBranch -ne 'null') {
-              Write-Host "Pushing to target branch: $targetBranch"
-              git push origin $targetBranch
+              Write-Host "Pushing to target branch: `$targetBranch"
+              git push origin $targetBranch 2>&1
           } elseif ($sourceBranch -ne '' -and $sourceBranch -ne 'null') {
-              Write-Host "Pushing to source branch: $sourceBranch"
-              git push origin $sourceBranch
+              Write-Host "Pushing to source branch: `$sourceBranch"
+              git push origin $sourceBranch 2>&1
           } else {
               Write-Host "Error: No valid branch specified for push"
               exit 1
