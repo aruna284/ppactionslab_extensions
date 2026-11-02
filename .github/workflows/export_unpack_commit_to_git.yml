@@ -85,6 +85,7 @@ jobs:
           solution-type: 'Unmanaged'
           process-canvas-apps: false
           overwrite-files: true
+        continue-on-error: true
 
       # Commit changes to the existing or new branch
       - name: commit changes
