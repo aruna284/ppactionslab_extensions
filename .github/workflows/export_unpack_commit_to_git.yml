@@ -92,24 +92,16 @@ jobs:
       # Commit changes to the existing or new branch
       - name: commit changes
         shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMIT_MESSAGE: ${{ github.event.inputs.commit_message }}
-          SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
         run: |
           rm -rf ${{ github.event.inputs.solution_name }}.zip
           rm -rf ${{ github.event.inputs.solution_name }}_managed.zip
           git config user.name "${{ github.event.inputs.user_name }}"
           git config user.email "aruna284@users.noreply.github.com"
-          git config --global url."https://x-access-token:`$env:GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
-          
-          $targetBranch = '${{ github.event.inputs.target_branch }}'
-          $sourceBranch = '${{ github.event.inputs.source_branch }}'
           
           # Determine which branch we're on
-          $branchToPull = $targetBranch
+          $branchToPull = '${{ github.event.inputs.target_branch }}'
           if ($branchToPull -eq '' -or $branchToPull -eq 'null') {
-              $branchToPull = $sourceBranch
+              $branchToPull = '${{ github.event.inputs.source_branch }}'
           }
           
           git pull origin $branchToPull
@@ -125,36 +117,12 @@ jobs:
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $targetBranch = '${{ github.event.inputs.target_branch }}'
           $sourceBranch = '${{ github.event.inputs.source_branch }}'
           
-          # Prepare the branch name to push to
-          $branchToPush = $targetBranch
-          if ($branchToPush -eq '' -or $branchToPush -eq 'null') {
-              $branchToPush = $sourceBranch
-          }
+          $branchToPush = if ($targetBranch -ne '' -and $targetBranch -ne 'null') { $targetBranch } else { $sourceBranch }
           
-          if ($branchToPush -eq '' -or $branchToPush -eq 'null') {
-              Write-Host "Error: No valid branch specified"
-              exit 1
-          }
-          
-          Write-Host "Fetching remote to sync tracking"
-          git fetch origin 2>&1
-          
-          Write-Host "Pulling latest changes from remote branch: $branchToPush"
-          git pull --rebase origin $branchToPush 2>&1
-          
-          Write-Host "Pushing to remote branch: $branchToPush"
-          git push --force-with-lease origin $branchToPush 2>&1
-          
-          $pushExitCode = $LASTEXITCODE
-          if ($pushExitCode -ne 0) {
-              Write-Host "Error: Push failed with exit code $pushExitCode"
-              exit $pushExitCode
-          }
-          
-          Write-Host "Successfully pushed changes to $branchToPush"
+          git fetch origin
+          git pull --rebase origin $branchToPush
+          git push --force-with-lease origin $branchToPush
