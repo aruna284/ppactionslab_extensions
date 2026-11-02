@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{2250c084-dc6d-4dbb-8c6e-8714c7a417bd}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="demo1_name" select="1" icon="1" preview="1">
+        <row name="result" id="demo1_expensereportid">
+          <cell name="demo1_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="demo1_approvedby" width="116" />
+          <cell name="demo1_assignedreviewer" width="150" />
+          <cell name="demo1_bankaccount" width="121" />
+          <cell name="demo1_city" width="100" />
+          <cell name="demo1_description" width="106" />
+          <cell name="exchangerate" width="125" />
+          <cell name="demo1_region" width="100" />
+          <cell name="demo1_reportstatus" width="116" />
+          <cell name="demo1_submissiondate" width="136" />
+          <cell name="demo1_submitter" width="100" />
+          <cell name="demo1_totalamount" width="118" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="demo1_expensereport">
+          <attribute name="demo1_expensereportid" />
+          <attribute name="demo1_name" />
+          <attribute name="createdon" />
+          <order attribute="demo1_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="demo1_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="demo1_approvedby" />
+          <attribute name="demo1_assignedreviewer" />
+          <attribute name="demo1_bankaccount" />
+          <attribute name="demo1_city" />
+          <attribute name="demo1_description" />
+          <attribute name="exchangerate" />
+          <attribute name="demo1_region" />
+          <attribute name="demo1_reportstatus" />
+          <attribute name="demo1_submissiondate" />
+          <attribute name="demo1_submitter" />
+          <attribute name="demo1_totalamount" />
+          <attribute name="ownerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Expense Reports" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

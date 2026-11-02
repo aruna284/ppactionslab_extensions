@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{df45edf9-f7ab-4dd5-9540-d61588a069c0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="demo1_name" select="1" icon="1" preview="1">
+        <row name="result" id="demo1_expenselineitemid">
+          <cell name="demo1_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="demo1_amount" width="100" />
+          <cell name="demo1_category" width="100" />
+          <cell name="demo1_date" width="100" />
+          <cell name="exchangerate" width="125" />
+          <cell name="demo1_expensereport" width="130" />
+          <cell name="demo1_merchantname" width="131" />
+          <cell name="demo1_notes" width="100" />
+          <cell name="demo1_submittedby" width="118" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="demo1_expenselineitem">
+          <attribute name="demo1_expenselineitemid" />
+          <attribute name="demo1_name" />
+          <attribute name="createdon" />
+          <order attribute="demo1_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="demo1_amount" />
+          <attribute name="demo1_category" />
+          <attribute name="demo1_date" />
+          <attribute name="exchangerate" />
+          <attribute name="demo1_expensereport" />
+          <attribute name="demo1_merchantname" />
+          <attribute name="demo1_notes" />
+          <attribute name="demo1_submittedby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Expense Line Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

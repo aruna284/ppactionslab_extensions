@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{81d66136-502d-4a1b-841e-34e637d77e4f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="demo1_name" select="1" icon="1" preview="1">
+        <row name="result" id="demo1_costcenterid">
+          <cell name="demo1_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="demo1_availablebudget" width="138" />
+          <cell name="demo1_budgetowner" width="123" />
+          <cell name="demo1_costcenterstatus" width="145" />
+          <cell name="exchangerate" width="125" />
+          <cell name="demo1_financemanager" width="138" />
+          <cell name="demo1_fiscalyear" width="103" />
+          <cell name="demo1_notes" width="100" />
+          <cell name="demo1_region" width="100" />
+          <cell name="demo1_totalbudget" width="113" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="demo1_costcenter">
+          <attribute name="demo1_costcenterid" />
+          <attribute name="demo1_name" />
+          <attribute name="createdon" />
+          <order attribute="demo1_name" descending="false" />
+          <attribute name="demo1_availablebudget" />
+          <attribute name="demo1_budgetowner" />
+          <attribute name="demo1_costcenterstatus" />
+          <attribute name="exchangerate" />
+          <attribute name="demo1_financemanager" />
+          <attribute name="demo1_fiscalyear" />
+          <attribute name="demo1_notes" />
+          <attribute name="demo1_region" />
+          <attribute name="demo1_totalbudget" />
+          <attribute name="ownerid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Cost Center Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

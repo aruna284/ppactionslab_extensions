@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_demo1_costcenter" />
+  <EntityRelationship Name="business_unit_demo1_expenselineitem" />
+  <EntityRelationship Name="business_unit_demo1_expensereport" />
+  <EntityRelationship Name="demo1_costcenter_BudgetOwner_systemuser" />
+  <EntityRelationship Name="demo1_costcenter_FinanceManager_systemuser" />
+  <EntityRelationship Name="demo1_costcenter_LastReviewedBy_systemuser" />
+  <EntityRelationship Name="demo1_expenselineitem_ExpenseReport_demo1_expensereport" />
+  <EntityRelationship Name="demo1_expenselineitem_SubmittedBy_systemuser" />
+  <EntityRelationship Name="demo1_expensereport_ApprovedBy_systemuser" />
+  <EntityRelationship Name="demo1_expensereport_AssignedReviewer_systemuser" />
+  <EntityRelationship Name="demo1_expensereport_Submitter_systemuser" />
+  <EntityRelationship Name="lk_demo1_costcenter_createdby" />
+  <EntityRelationship Name="lk_demo1_costcenter_modifiedby" />
+  <EntityRelationship Name="lk_demo1_expenselineitem_createdby" />
+  <EntityRelationship Name="lk_demo1_expenselineitem_modifiedby" />
+  <EntityRelationship Name="lk_demo1_expensereport_createdby" />
+  <EntityRelationship Name="lk_demo1_expensereport_modifiedby" />
+  <EntityRelationship Name="owner_demo1_costcenter" />
+  <EntityRelationship Name="owner_demo1_expenselineitem" />
+  <EntityRelationship Name="owner_demo1_expensereport" />
+  <EntityRelationship Name="team_demo1_costcenter" />
+  <EntityRelationship Name="team_demo1_expenselineitem" />
+  <EntityRelationship Name="team_demo1_expensereport" />
+  <EntityRelationship Name="TransactionCurrency_demo1_CostCenter" />
+  <EntityRelationship Name="TransactionCurrency_demo1_ExpenseLineItem" />
+  <EntityRelationship Name="TransactionCurrency_demo1_ExpenseReport" />
+  <EntityRelationship Name="user_demo1_costcenter" />
+  <EntityRelationship Name="user_demo1_expenselineitem" />
+  <EntityRelationship Name="user_demo1_expensereport" />
+</EntityRelationships>

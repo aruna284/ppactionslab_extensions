@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{9dff69d3-fcc4-46ed-af7a-52dc3b009d16}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{6eddb427-c656-43a4-87e4-72d25ba795a0}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{92bc8142-9edf-4117-9818-314c5a282745}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{97aa5d5c-4419-4662-9ee0-eaed3be15330}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="demo1_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{11362d34-acd7-43c8-b86c-f0cb619ff402}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9ef3794d-e892-4eec-a03b-1928c36103df}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="demo1_amount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1312be9c-863b-4c8e-b370-b3093db0122b}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Category" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_category" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="demo1_category" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{737f04e1-a20e-40bb-91a8-27600502e290}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Date" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_date" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="demo1_date" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7258cd89-2ad2-4d04-898c-fc78456bf10a}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Exchange Rate" languagecode="1033" />
+                        </labels>
+                        <control id="exchangerate" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="exchangerate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6509d946-9917-42bb-b72b-492406ae6f60}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Expense Report" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_expensereport" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="demo1_expensereport" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0f39ca94-301e-42e9-a3cb-8a2ce9ed0423}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Merchant Name" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_merchantname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="demo1_merchantname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ac89d02a-4945-4745-8c09-772af67d63b8}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_notes" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="demo1_notes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0d858e31-b679-4d32-9d1b-517467ed324c}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Submitted By" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_submittedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="demo1_submittedby" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{fa11bbf4-5912-4ec0-b76c-2e94e106ba44}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8e742975-5008-4684-9a10-668943464c52}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{caeeb6bc-8d5e-4ac3-9e9c-fa3fc0fc0adc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9a8823c3-6694-43b5-9d3d-92495ef8e950}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{f5617ba3-d165-4ef7-9486-ee9760069350}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0b221574-2135-47e5-9ffb-841a17557427}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4be019f5-4550-40df-81e2-21114e1b63e8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a0784dd3-bc70-41fe-bcc8-215d96d53642}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

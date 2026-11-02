@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{e0baaacf-6484-4495-ba43-193408691843}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{fca96c1d-d952-4dfe-b4f9-93664ff58bb7}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{f3b230b2-c1b7-4214-99ee-6038eb988919}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d5412bd6-95e3-4c31-a7bd-72965de41143}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="demo1_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{225c1c75-e733-46d5-8509-b9bbc056872e}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b54d580f-5f6c-42f9-8e71-35fb8f2a0f46}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Available Budget" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_availablebudget" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="demo1_availablebudget" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4724be0a-caa4-44c4-842f-ff41bbb50d74}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Budget Owner" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_budgetowner" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="demo1_budgetowner" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ce008637-f91b-4dfd-9eda-52e2d75aa7c9}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Cost Center Status" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_costcenterstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="demo1_costcenterstatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a408e266-a35b-4a80-8ea8-91b6749a3686}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Exchange Rate" languagecode="1033" />
+                        </labels>
+                        <control id="exchangerate" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="exchangerate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{945b3996-d305-4467-b0e2-54e2188e2737}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Finance Manager" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_financemanager" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="demo1_financemanager" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9faf45db-5dc4-4818-b6e2-c0ccfb20fba3}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Fiscal Year" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_fiscalyear" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="demo1_fiscalyear" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4edf1eef-f139-4b88-867f-8335019a43aa}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_notes" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="demo1_notes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1fa18367-1194-483f-a5f4-9aa8b02e4bb9}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Region" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_region" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="demo1_region" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4ec8928-c5bd-47cd-ac70-ccbf9981371f}" locklevel="0" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Total Budget" languagecode="1033" />
+                        </labels>
+                        <control id="demo1_totalbudget" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="demo1_totalbudget" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{e36bc9a2-621e-40ea-9f60-a39a8b94aea3}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5487ff9d-d5d0-41c8-ad24-11b89a0c1244}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{429100e5-c8bd-4296-bd5f-f3867c197bf6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cfd659e9-27ba-47ab-9f42-a9893cf1dec4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{c91599f7-c3d5-45a2-979b-8353c4c7b849}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6eb409cb-2e11-4b7c-8ca9-edab248fbd39}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6896d081-a818-4465-a0a7-182008d90020}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{572480c5-09bc-4b3d-88a1-89946dac02d5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
