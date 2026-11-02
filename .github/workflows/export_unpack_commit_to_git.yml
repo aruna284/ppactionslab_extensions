@@ -94,6 +94,8 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.inputs.commit_message }}
+          SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
         run: |
           rm -rf ${{ github.event.inputs.solution_name }}.zip
           rm -rf ${{ github.event.inputs.solution_name }}_managed.zip
