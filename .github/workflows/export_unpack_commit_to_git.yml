@@ -60,6 +60,8 @@ jobs:
             $headers.Add("Authorization", "Bearer $spnToken")
             $headers.Add("Content-Type", "application/json")
 
+            $headers["Authorization"] = 'Bearer ' + $spnToken
+
             # Download the managed solution
             $response = Invoke-RestMethod "${{ github.event.inputs.artifact_url }}" -Method 'GET' -Headers $headers
             $bytes = [Convert]::FromBase64String($response.value)
