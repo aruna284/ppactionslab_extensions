@@ -94,15 +94,21 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.inputs.commit_message }}
+          SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
         run: |
           rm -rf ${{ github.event.inputs.solution_name }}.zip
           rm -rf ${{ github.event.inputs.solution_name }}_managed.zip
           git config user.name "${{ github.event.inputs.user_name }}"
           git config user.email "aruna284@users.noreply.github.com"
           git config --global url."https://x-access-token:`$env:GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
-          git pull
+          git pull origin "$env:SOURCE_BRANCH"
           git add --all
-          git commit -am "${{ github.event.inputs.commit_message }}" --allow-empty
+          $commitMessage = $env:COMMIT_MESSAGE
+          if ([string]::IsNullOrWhiteSpace($commitMessage)) {
+            $commitMessage = "Update solution files"
+          }
+          git commit -am "$commitMessage" --allow-empty
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
