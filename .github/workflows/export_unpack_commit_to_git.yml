@@ -105,7 +105,6 @@ jobs:
       # Push the committed changes to the source branch
       - name: push to branch
         shell: pwsh
-        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
