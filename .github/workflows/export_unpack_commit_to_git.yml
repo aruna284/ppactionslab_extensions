@@ -73,11 +73,11 @@ jobs:
 
       # Install Power Apps CLI (REQUIRED STEP - THIS WAS MISSING!)
       - name: Install Power Apps CLI
-        uses: microsoft/powerplatform-actions/actions-install@v1.0.1
+        uses: microsoft/powerplatform-actions/actions-install@v1.9.1
 
       # Unpack the solution
       - name: unpack solution
-        uses: microsoft/powerplatform-actions/unpack-solution@v1.0.1
+        uses: microsoft/powerplatform-actions/unpack-solution@v1.9.1
         timeout-minutes: 20
         with:
           solution-file: "${{ github.event.inputs.solution_name }}.zip"
