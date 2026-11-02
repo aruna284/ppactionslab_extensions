@@ -20,7 +20,7 @@ on:
         required: false
       commit_message:
         description: "Message to provide for the commit"
-        required: true
+        required: false
 permissions:
   contents: write
 jobs:
